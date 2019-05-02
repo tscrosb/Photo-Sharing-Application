@@ -1,0 +1,24 @@
+<head>
+    <title>see_albums</title>
+</head>
+    <body>
+        <div class="title">
+            <h1>Here are your albums</h1>
+            <ul>
+                {% for album in albums %}
+
+                {{album[0]}}
+                <form action="/show_pictures" method="POST"> <!-- action is where to send information -->
+          <input type="hidden" name="albname" value={{album[0]}} /> <!-- Execute the action -->
+          <input type="submit" name="Search for friends" value = "see pictures"/> 
+          <!-- Execute the action -->
+        </form>
+        <form action="/delete_album" method="POST">
+            <input type="hidden" name="albname" value={{album[0]}} />
+            <input type="submit" name="delete" value = "delete album"/>
+        </form>
+                {% endfor %}
+            
+            </ul>
+        </div>
+    </body>

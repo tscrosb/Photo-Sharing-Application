@@ -1,0 +1,18 @@
+<html>
+
+  <head>
+    <title>Search!</title>
+  </head>
+  
+  <body>
+  	{% for mate in friends %}
+    	{{mate[0]}}
+	    <!-- Create a form to pass information -->
+	    <form action="/add_friend" method="POST"> <!-- action is where to send information -->
+	      <input type="hidden" name="fval" value={{mate[0]}} /> <!-- Execute the action -->
+	      <input type="submit" name="Search for friends" value = "add friend"/> <!-- Execute the action -->
+
+	    </form>
+    {% endfor %}
+  </body>
+</html>

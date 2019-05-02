@@ -1,0 +1,25 @@
+{% if photos %}
+<h2>Here are all the photos uploaded to photoshare</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li>{{photo[1]}}<br>
+        <img src='data:image/png;base64, {{photo[0]}}''width=250px height=auto'/></li>
+        <form method="post" action="/write_comment">
+        	<label for="tag">Leave comment:</label>
+            <input type="text" name ="comment" required='false' /><br />
+            <input type="hidden" name="pid" value={{photo[2]}} />
+            <input type="submit" value="Comment" />
+        </form>
+
+        <ul>
+    	{% for comment in comments %}
+			<li>{{comment[0]}}</li>
+		{% endfor %}
+	</ul>
+	</ul>
+
+    {% endfor %}
+    
+{% endif %}
+

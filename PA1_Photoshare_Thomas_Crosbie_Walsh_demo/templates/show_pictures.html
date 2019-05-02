@@ -1,0 +1,14 @@
+{% if photos %}
+<h2>Here's your photos</h2>
+    <ul>
+    {% for photo in photos %}
+
+        <li>{{photo[1]}}<br>
+        <img src='data:image/png;base64, {{photo[0]}}''width=250px height=auto'/></li>
+        
+    {% endfor %}
+
+
+    </ul>
+{% endif %}
+<li><a href='/upload'>Upload a photo</a> </li>
